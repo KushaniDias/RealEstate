@@ -165,6 +165,7 @@
     <Content Include="Views\Home\Owners.cshtml" />
     <Content Include="Views\Home\Rents.cshtml" />
     <Content Include="Views\Home\BranchDetails.cshtml" />
+    <Content Include="Views\Owner\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -172,9 +173,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Owner\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202010150546373_realEstate.resx">
       <DependentUpon>202010150546373_realEstate.cs</DependentUpon>
