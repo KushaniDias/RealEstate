@@ -26,7 +26,7 @@ namespace Real_estate.Controllers
 
         public ActionResult Owners()
         {
-            List<Owner> AllOwners = rec.Owners.ToList();
+            List<Owner> AllOwners = rec.Branches.ToList();
             return View(AllOwners);
         }
 
@@ -53,7 +53,7 @@ namespace Real_estate.Controllers
 
         public ActionResult OwnerDetails(string id)
         {
-            Owner owner = rec.Owners
+            Owner owner = rec.Branches
                 .SingleOrDefault(x => x.OwnerNo == id);
             return View(owner);
         }
