@@ -12,7 +12,7 @@ namespace Real_estate.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public String StaffNo { get; set; }
+        public string StaffNo { get; set; }
 
         public string Fname { get; set; }
 
@@ -20,12 +20,19 @@ namespace Real_estate.Models
 
         public string Position { get; set; }
 
+        [DataType(DataType.Date)]
+        [Column(TypeName ="date")]
         public DateTime DOB { get; set; }
 
         public int Salary { get; set; }
 
         [ForeignKey("Branch")]
-        public String Branch_BranchNoRef { get; set; }
-        public Branch Branch { get; set; }
+        public string Branch_BranchNoRef { get; set; }
+       // public Branch Branch { get; set; }
+
+        public virtual Branch Branch { get; set; }
+
+        public virtual List<Rent> Rent { get; set; }
+
     }
 }

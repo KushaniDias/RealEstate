@@ -13,7 +13,7 @@ namespace Real_estate.Models
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public String OwnerNo { get; set; }
+        public string OwnerNo { get; set; }
 
         public string Fname { get; set; }
 
@@ -22,6 +22,8 @@ namespace Real_estate.Models
         public string Address { get; set; }
 
         public string TellNo { get; set; }
+
+        public virtual List<Rent> Rent { get; set; }
 
     }
 }

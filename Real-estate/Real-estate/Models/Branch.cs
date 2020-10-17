@@ -12,13 +12,16 @@ namespace Real_estate.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public String BranchNo { get; set; }
+        public string BranchNo { get; set; }
 
         public string Street { get; set; }
 
         public string City { get; set; }
 
         public string Postcode { get; set; }
+
+        public virtual List<Staff> Staff { get; set; }
+        public virtual List<Rent>Rent { get; set; }
 
     }
 }

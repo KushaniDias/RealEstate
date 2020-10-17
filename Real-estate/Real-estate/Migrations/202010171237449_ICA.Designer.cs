@@ -7,13 +7,13 @@ namespace Real_estate.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class realEstate : IMigrationMetadata
+    public sealed partial class ICA : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(realEstate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ICA));
         
         string IMigrationMetadata.Id
         {
-            get { return "202010150546373_realEstate"; }
+            get { return "202010171237449_ICA"; }
         }
         
         string IMigrationMetadata.Source

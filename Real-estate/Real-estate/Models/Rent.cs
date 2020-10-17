@@ -12,7 +12,7 @@ namespace Real_estate.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public String PropertyNo { get; set; }
+        public string PropertyNo { get; set; }
         public string Street { get; set; }
         public string City { get; set; }
         public string Ptype { get; set; }

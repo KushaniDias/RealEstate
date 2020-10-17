@@ -142,9 +142,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202010150546373_realEstate.cs" />
-    <Compile Include="Migrations\202010150546373_realEstate.Designer.cs">
-      <DependentUpon>202010150546373_realEstate.cs</DependentUpon>
+    <Compile Include="Migrations\202010171237449_ICA.cs" />
+    <Compile Include="Migrations\202010171237449_ICA.Designer.cs">
+      <DependentUpon>202010171237449_ICA.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Branch.cs" />
@@ -166,6 +166,8 @@
     <Content Include="Views\Home\Rents.cshtml" />
     <Content Include="Views\Home\BranchDetails.cshtml" />
     <Content Include="Views\Owner\Index.cshtml" />
+    <Content Include="Views\Owner\Create.cshtml" />
+    <Content Include="Views\Owner\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -173,10 +175,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202010150546373_realEstate.resx">
-      <DependentUpon>202010150546373_realEstate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202010171237449_ICA.resx">
+      <DependentUpon>202010171237449_ICA.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
