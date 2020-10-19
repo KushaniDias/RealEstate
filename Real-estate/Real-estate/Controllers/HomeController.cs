@@ -14,11 +14,11 @@ namespace Real_estate.Controllers
         private RealEstateContext rec = new RealEstateContext();
         public ActionResult Index()
         {
-            List<Branch> AllBranches = rec.Branches.ToList();
-            return View(AllBranches);
+          //  List<Branch> AllBranches = rec.Branches.ToList();
+            return View();
         }
 
-        public ActionResult Staffs()
+      /*  public ActionResult Staffs()
         {
             List<Staff> AllStaffs = rec.Staffs.ToList();
             return View(AllStaffs);
@@ -63,7 +63,7 @@ namespace Real_estate.Controllers
             Rent rent = rec.Rents
                 .SingleOrDefault(x => x.PropertyNo == id);
             return View(rent);
-        }
+        }*/
 
 
     }

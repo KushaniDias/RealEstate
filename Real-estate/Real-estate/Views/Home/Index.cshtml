@@ -1,7 +1,7 @@
-﻿@model IEnumerable<Real_estate.Models.Branch>
-
+﻿@model.IEnumerable<Real_estate.Models.Owner>
+    @using Real_estate.Models;
 @{
-    Layout = null;
+    ViewBag.Title = "Index";
 }
 
 <!DOCTYPE html>
@@ -12,42 +12,21 @@
     <title>Index</title>
 </head>
 <body>
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Street)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.City)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Postcode)
-            </th>
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Street)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.City)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Postcode)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.BranchNo }) |
-                @Html.ActionLink("Details", "Details", new { id=item.BranchNo }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.BranchNo })
-            </td>
-        </tr>
-    }
-    
-    </table>
+    <h4>Click Here To View More...</h4>
+    <div style="background-color:aliceblue;width:15%;"> 
+        @Html.ActionLink("Owner", "Index", "Owner/Index")
+    </div>
+    <br/>
+    <div style="background-color:aliceblue;width:15%;">
+        @Html.ActionLink("Branch", "Index", "Branch/Index")
+    </div>
+    <br/>
+    <div style="background-color:aliceblue;width:15%;">
+        @Html.ActionLink("Staff", "Index", "Staff/Index")
+    </div>
+    <br/>
+    <div style="background-color:aliceblue;width:15%;">
+        @Html.ActionLink("Rent", "Index", "Rent/Index")
+    </div>
 </body>
 </html>
