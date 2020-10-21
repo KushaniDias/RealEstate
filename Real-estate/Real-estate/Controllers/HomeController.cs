@@ -11,7 +11,7 @@ namespace Real_estate.Controllers
     {
         // GET: Home
         //Object creation for Context class
-        private RealEstateContext rec = new RealEstateContext();
+        //private RealEstateContext rec = new RealEstateContext();
         public ActionResult Index()
         {
           //  List<Branch> AllBranches = rec.Branches.ToList();
