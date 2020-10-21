@@ -22,15 +22,20 @@ namespace Real_estate.Controllers
         //create action for Rent -----------------------------------------
         public ActionResult Create()
         {
-
-            ViewBag.RentDetails = rec.Rents;
+            ViewBag.StaffDetails = rec.Staffs;
+            ViewBag.BranchDetails = rec.Branches;
+            ViewBag.OwnerDetails = rec.Owners;
+            // ViewBag.RentDetails = rec.Rents;
             return View();
         }
         //Action to actually insert the data into Rent--------------------------
         [HttpPost]
         public ActionResult Create(Rent rent)
         {
-            ViewBag.RentDetails = rec.Rents;
+            ViewBag.StaffDetails = rec.Staffs;
+            ViewBag.BranchDetails = rec.Branches;
+            ViewBag.OwnerDetails = rec.Owners;
+            //ViewBag.RentDetails = rec.Rents;
             rec.Rents.Add(rent);
             rec.SaveChanges();
             return RedirectToAction("Index");
@@ -63,14 +68,20 @@ namespace Real_estate.Controllers
         //to edit or update the details--------------------------
         public ActionResult Edit(String id)
         {
+            ViewBag.StaffDetails = rec.Staffs;
+            ViewBag.BranchDetails = rec.Branches;
+            ViewBag.OwnerDetails = rec.Owners;
             Rent rent = rec.Rents.SingleOrDefault(x => x.PropertyNo == id);
-            ViewBag.RentDetails = new SelectList(rec.Rents, "PropertyNo", "Name");
+            //ViewBag.RentDetails = new SelectList(rec.Rents, "PropertyNo", "Name");
             return View(rent);
         }
 
         [HttpPost]
         public ActionResult Edit(String id, Rent updatedRent)
         {
+            ViewBag.StaffDetails = rec.Staffs;
+            ViewBag.BranchDetails = rec.Branches;
+            ViewBag.OwnerDetails = rec.Owners;
             Rent rent = rec.Rents.SingleOrDefault(x => x.PropertyNo == id);
             rent.PropertyNo = updatedRent.PropertyNo;
             rent.Street = updatedRent.Street;

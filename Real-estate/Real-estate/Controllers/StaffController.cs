@@ -22,14 +22,15 @@ namespace Real_estate.Controllers
         public ActionResult Create()
         {
             
-            ViewBag.StaffDetails = rec.Staffs;
+            ViewBag.BranchDetails = rec.Branches;
             return View();
         }
         //Action to actually insert the data into Staff--------------------------
         [HttpPost]
         public ActionResult Create(Staff staff)
         {
-            ViewBag.StaffDetails = rec.Staffs;
+            ViewBag.BranchDetails = rec.Branches;
+            // ViewBag.StaffDetails = rec.Staffs;
             rec.Staffs.Add(staff);
             rec.SaveChanges();
             return RedirectToAction("Index");
@@ -62,6 +63,7 @@ namespace Real_estate.Controllers
         //to edit or update the details--------------------------
         public ActionResult Edit(String id)
         {
+            ViewBag.BranchDetails = rec.Branches;
             Staff staff = rec.Staffs.SingleOrDefault(x => x.StaffNo == id);
             ViewBag.StaffDetails = new SelectList(rec.Staffs, "StaffNo", "Name");
             return View(staff);
@@ -70,6 +72,7 @@ namespace Real_estate.Controllers
         [HttpPost]
         public ActionResult Edit(String id, Staff updatedStaff)
         {
+            ViewBag.BranchDetails = rec.Branches;
             Staff staff = rec.Staffs.SingleOrDefault(x => x.StaffNo == id);
             staff.StaffNo = updatedStaff.StaffNo;
             staff.Fname = updatedStaff.Fname;
@@ -77,7 +80,7 @@ namespace Real_estate.Controllers
             staff.Position = updatedStaff.Position;
             staff.DOB = updatedStaff.DOB;
             staff.Salary = updatedStaff.Salary;
-            staff.Branch_BranchNoRef = updatedStaff.Branch_BranchNoRef;
+           // staff.Branch_BranchNoRef = updatedStaff.Branch_BranchNoRef;
             rec.SaveChanges();
             return RedirectToAction("Index");
         }

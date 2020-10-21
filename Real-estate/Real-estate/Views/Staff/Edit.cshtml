@@ -1,7 +1,8 @@
 ﻿@model Real_estate.Models.Staff
 
 @{
-    Layout = null;
+    //Layout = null;
+    ViewBag.Title = "Edit";
 }
 
 <!DOCTYPE html>
@@ -12,6 +13,7 @@
     <title>Edit</title>
 </head>
 <body>
+    <h2>Edit</h2>
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
@@ -65,7 +67,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Branch_BranchNoRef, "Branch_BranchNoRef", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownList("Branch_BranchNoRef", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.DropDownListFor(model=>model.Branch_BranchNoRef,new SelectList(ViewBag.BranchDetails,"BranchNo","Street"),"Select BranchNo")
                     @Html.ValidationMessageFor(model => model.Branch_BranchNoRef, "", new { @class = "text-danger" })
                 </div>
             </div>

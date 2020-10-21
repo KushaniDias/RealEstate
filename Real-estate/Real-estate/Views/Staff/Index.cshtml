@@ -1,7 +1,8 @@
 ﻿@model IEnumerable<Real_estate.Models.Staff>
 
 @{
-    Layout = null;
+    //Layout = null;
+    ViewBag.Title = "Index";
 }
 
 <!DOCTYPE html>
@@ -12,6 +13,7 @@
     <title>Index</title>
 </head>
 <body>
+    <h2>Staff</h2>
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
@@ -67,5 +69,9 @@
     }
     
     </table>
+    <div class="form-actions no-color">
+
+        | @Html.ActionLink("Back to Home", "Index", "Home/Index")
+    </div>
 </body>
 </html>

@@ -1,7 +1,8 @@
 ﻿@model Real_estate.Models.Rent
 
 @{
-    Layout = null;
+    //Layout = null;
+    ViewBag.Title = "Edit";
 }
 
 <!DOCTYPE html>
@@ -12,10 +13,11 @@
     <title>Edit</title>
 </head>
 <body>
+    <h2>Edit</h2>
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        
+
         <div class="form-horizontal">
             <h4>Rent</h4>
             <hr />
@@ -57,7 +59,8 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.RefOwnerNoRef, "RefOwnerNoRef", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownList("RefOwnerNoRef", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.DropDownListFor(model => model.RefOwnerNoRef, new SelectList(ViewBag.OwnerDetails, "OwnerNo", "OwnerNo"), "Select OwnerNo")
+                  
                     @Html.ValidationMessageFor(model => model.RefOwnerNoRef, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -65,7 +68,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.RefStaffNoRef, "RefStaffNoRef", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownList("RefStaffNoRef", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.DropDownListFor(model=>model.RefStaffNoRef,new SelectList(ViewBag.StaffDetails,"StaffNo","StaffNo"),"Select StaffNo")
                     @Html.ValidationMessageFor(model => model.RefStaffNoRef, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -73,7 +76,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.REfBranchNoRef, "REfBranchNoRef", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownList("REfBranchNoRef", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.DropDownListFor(model => model.REfBranchNoRef, new SelectList(ViewBag.BranchDetails, "BranchNo", "BranchNo"), "Select BranchNo")
                     @Html.ValidationMessageFor(model => model.REfBranchNoRef, "", new { @class = "text-danger" })
                 </div>
             </div>
