@@ -12,11 +12,15 @@
     <title>Index</title>
 </head>
 <body>
+    <h2>Branch</h2>
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
     <table class="table">
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BranchNo)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Street)
             </th>
@@ -31,6 +35,9 @@
     
     @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BranchNo)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Street)
             </td>
@@ -49,5 +56,10 @@
     }
     
     </table>
+    <div class="form-actions no-color">
+
+        | @Html.ActionLink("Back to Home", "Index", "Home/Index")
+    </div>
+
 </body>
 </html>

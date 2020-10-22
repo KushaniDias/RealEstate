@@ -19,11 +19,11 @@
         <hr />
         <dl class="dl-horizontal">
             <dt>
-                @Html.DisplayNameFor(model => model.Branch.Street)
+                @Html.DisplayNameFor(model => model.StaffNo)
             </dt>
     
             <dd>
-                @Html.DisplayFor(model => model.Branch.Street)
+                @Html.DisplayFor(model => model.StaffNo)
             </dd>
     
             <dt>
@@ -65,7 +65,16 @@
             <dd>
                 @Html.DisplayFor(model => model.Salary)
             </dd>
-    
+            
+            <dt>
+                @Html.DisplayNameFor(model => model.Branch_BranchNoRef)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Branch_BranchNoRef)
+            </dd>
+
+
         </dl>
     </div>
     <p>

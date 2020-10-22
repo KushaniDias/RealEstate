@@ -88,9 +88,9 @@ namespace Real_estate.Controllers
             rent.City = updatedRent.City;
             rent.Ptype = updatedRent.Ptype;
             rent.Rooms = updatedRent.Rooms;
-            rent.REfBranchNoRef = updatedRent.REfBranchNoRef;
             rent.RefOwnerNoRef = updatedRent.RefOwnerNoRef;
             rent.RefStaffNoRef = updatedRent.RefStaffNoRef;
+            rent.REfBranchNoRef = updatedRent.REfBranchNoRef;
             rent.rent1 = updatedRent.rent1;
             rec.SaveChanges();
             return RedirectToAction("Index");
