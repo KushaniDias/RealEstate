@@ -15,7 +15,30 @@ namespace Real_estate.Controllers
         public ActionResult Index()
         {
             List<Staff> AllStaffs = rec.Staffs.ToList();
+            List<Staff> distinctPosition = rec.Staffs.GroupBy(x=>x.Position).Select(x=>x.FirstOrDefault()).ToList();
+            ViewBag.Position = new SelectList(distinctPosition,"Position","Position");
             return View(AllStaffs);
+        }
+
+        [HttpPost]
+        public ActionResult Index(FormCollection form)
+        {
+            List<Staff> distinctPosition = rec.Staffs.GroupBy(x => x.Position).Select(x => x.FirstOrDefault()).ToList();
+            ViewBag.Position = new SelectList(distinctPosition, "Position", "Position");
+            String pos = form["PosDropDown"]?.ToString();
+
+            if (pos == null)
+            {
+                List<Staff> filterStaff = rec.Staffs.ToList();
+                return View(filterStaff);
+            }
+            else {
+                List<Staff> filterStaff = rec.Staffs.Where(x=>x.Position==pos).ToList();
+                return View(filterStaff);
+            }
+
+
+            
         }
 
         //create action for Staff -----------------------------------------
@@ -65,14 +88,14 @@ namespace Real_estate.Controllers
         {
             ViewBag.BranchDetails = rec.Branches;
             Staff staff = rec.Staffs.SingleOrDefault(x => x.StaffNo == id);
-            ViewBag.StaffDetails = new SelectList(rec.Staffs, "StaffNo", "Name");
+            ViewBag.EditBranch = new SelectList(rec.Branches, "BranchNo", "Street");
             return View(staff);
         }
 
         [HttpPost]
         public ActionResult Edit(String id, Staff updatedStaff)
         {
-            ViewBag.BranchDetails = rec.Branches;
+           // ViewBag.BranchDetails = rec.Branches;
             Staff staff = rec.Staffs.SingleOrDefault(x => x.StaffNo == id);
             staff.StaffNo = updatedStaff.StaffNo;
             staff.Fname = updatedStaff.Fname;
