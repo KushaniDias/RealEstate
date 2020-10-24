@@ -13,7 +13,7 @@ namespace Real_estate.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
 
-        //[Display(Name="Branch Number")]
+        [Display(Name="Branch Number")]
         public string BranchNo { get; set; }
 
         public string Street { get; set; }
