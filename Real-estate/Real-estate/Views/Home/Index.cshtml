@@ -1,6 +1,9 @@
-﻿
+﻿@model IEnumerable <Real_estate.Models.Owner>
+    @using Real_estate.Models;
+
 @{
-    Layout = null;
+    // Layout = null;
+    ViewBag.Title = "Index";
 }
 
 <!DOCTYPE html>
@@ -29,6 +32,11 @@
     <br />
     <div style="background-color:aliceblue;width:25%;">
         @Html.ActionLink("Rent", "Index", "Rent/Index")
+    </div>
+    <br/>
+    <div style="background-color:aliceblue; width:25%;">
+        @Html.ActionLink("Building Count For Each Branch" ,"Index","Branch/Branch")
+
     </div>
     </center>
 </body>

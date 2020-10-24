@@ -16,7 +16,28 @@ namespace Real_estate.Controllers
         public ActionResult Index()
         {
             List<Rent> AllRents = rec.Rents.ToList();
+            List<Rent> distinctCity = rec.Rents.GroupBy(x=>x.City).Select(x=>x.FirstOrDefault()).ToList();
+            ViewBag.City = new SelectList(distinctCity,"City","City");
             return View(AllRents);
+        }
+
+        [HttpPost]
+        public ActionResult Index(FormCollection form)
+        {
+            List<Rent> distinctCity = rec.Rents.GroupBy(x => x.City).Select(x => x.FirstOrDefault()).ToList();
+            ViewBag.City = new SelectList(distinctCity, "City", "City");
+            String cty = form["CtyDropDown"]?.ToString();
+
+            if (cty == null)
+            {
+                List<Rent> filterBuildings = rec.Rents.ToList();
+                return View(filterBuildings);
+            }
+            else {
+                List<Rent> filterBuildings = rec.Rents.Where(x=>x.City==cty).ToList();
+                return View(filterBuildings);
+            }
+           
         }
 
         //create action for Rent -----------------------------------------
@@ -79,9 +100,9 @@ namespace Real_estate.Controllers
         [HttpPost]
         public ActionResult Edit(String id, Rent updatedRent)
         {
-            ViewBag.StaffDetails = rec.Staffs;
-            ViewBag.BranchDetails = rec.Branches;
-            ViewBag.OwnerDetails = rec.Owners;
+           // ViewBag.StaffDetails = rec.Staffs;
+           // ViewBag.BranchDetails = rec.Branches;
+           // ViewBag.OwnerDetails = rec.Owners;
             Rent rent = rec.Rents.SingleOrDefault(x => x.PropertyNo == id);
             rent.PropertyNo = updatedRent.PropertyNo;
             rent.Street = updatedRent.Street;

@@ -23,14 +23,14 @@ namespace Real_estate.Controllers
         public ActionResult Create()
         {
             //Branch name and id in dropdownlist
-            ViewBag.BranchDetails = rec.Branches;
+           // ViewBag.BranchDetails = rec.Branches;
             return View();
         }
         //Action to actually insert the data into Branch--------------------------
         [HttpPost]
         public ActionResult Create(Branch branch)
         {
-            ViewBag.BranchDetails = rec.Branches;
+            //ViewBag.BranchDetails = rec.Branches;
             rec.Branches.Add(branch);
             rec.SaveChanges();
             return RedirectToAction("Index");
@@ -64,7 +64,7 @@ namespace Real_estate.Controllers
         public ActionResult Edit(String id)
         {
             Branch branch = rec.Branches.SingleOrDefault(x => x.BranchNo == id);
-            ViewBag.BranchDetails =new SelectList(rec.Branches,"BranchNo","Name");
+           // ViewBag.BranchDetails =new SelectList(rec.Branches,"BranchNo","Name");
             return View(branch);
         }
 
@@ -80,5 +80,18 @@ namespace Real_estate.Controllers
             return RedirectToAction("Index");
         }
 
+        // For the query-------------------
+        public ActionResult Branch()
+        {
+            List<Branch> branch = rec.Branches.ToList();
+            return View(branch);
+        }
+
+        public ActionResult BuildingBranch(String id)
+        {
+            var rent = rec.Rents.Where(x=>x.REfBranchNoRef==id).ToList().Count();
+            ViewBag.count = rent;
+            return View();
+        }
     }
 }
