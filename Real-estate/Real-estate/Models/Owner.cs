@@ -16,10 +16,10 @@ namespace Real_estate.Models
         [Display(Name = "Owner Number")]
         public string OwnerNo { get; set; }
 
-        [Display(Name = "First Number")]
+        [Display(Name = "First Name")]
         public string Fname { get; set; }
 
-        [Display(Name = "Last Namer")]
+        [Display(Name = "Last Name")]
         public string Lname { get; set; }
 
         public string Address { get; set; }
